@@ -102,7 +102,7 @@ Route::get('/delete/{id}', [ProductController::class, 'ProductDelete'])->name('p
 
 // Slider Route at Admin 
 //GFGF
-
+//help
 Route::prefix('slider')->group(function(){
 Route::get('/view', [SliderController::class, 'SliderView'])->name('manage-slider');
 Route::post('/store', [SliderController::class, 'SliderStore'])->name('slider.store');
