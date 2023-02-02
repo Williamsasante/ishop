@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="">
 		<meta name="csrf-token" content="{{ csrf_token() }}">
+    
 		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 		 <title>@yield('title') </title>
@@ -14,7 +15,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,600italic,700,700italic,800' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-
+   
 		<!-- Bootstrap -->
 		<link type="text/css" rel="stylesheet" href=" {{asset('frontend/css/bootstrap.min.css')}}"/>
        
@@ -30,7 +31,7 @@
 
 		<!-- Custom stlylesheet -->
 		<link type="text/css" rel="stylesheet" href="{{asset('frontend/css/style.css')}}"/>
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
 
 
@@ -92,7 +93,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-	  <h5 class="modal-title" id="exampleModalLabel"><span id="pname"></span> </h5>
+      <h5 class="modal-title" id="exampleModalLabel"><span id="pname"></span> </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -117,7 +118,7 @@
         <div class="col-md-4">
 
      <ul class="list-group">
-	 <li class="list-group-item">Product Price: <strong id="price"></strong> </li>
+     <li class="list-group-item">Product Price: <strong id="price"></strong> </li>
   <li class="list-group-item">Product Code: <strong id="pcode"></strong></li>
   <li class="list-group-item">Category: <strong id="pcategory"></strong></li>
   <li class="list-group-item">SubCategory: <strong id="psubcategory"></strong></li>
@@ -161,7 +162,6 @@
 </div>
 <!-- End Add to Cart Product Modal -->
 
-
 <script type="text/javascript">
     $.ajaxSetup({
         headers:{
@@ -176,18 +176,18 @@ function productView(id){
         url: '/product/view/modal/'+id,
         dataType:'json',
         success:function(data){
-			// console.log(data)
             $('#pname').text(data.product.product_name);
             $('#price').text(data.product.selling_price);
             $('#pcode').text(data.product.product_code);
             $('#pcategory').text(data.product.category.category_name);
-            $('#pbrand').text(data.product.subcategory.subcategory_name);
+            $('#pbrand').text(data.product.brand.brand_name);
             $('#pimage').attr('src','/'+data.product.product_thambnail);
         }
     })
  
 }
 </script>
+
 
 
 

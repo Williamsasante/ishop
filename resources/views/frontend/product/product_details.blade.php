@@ -76,7 +76,7 @@
 								</div>
 								<a class="review-link" href="#">10 Review(s) | Add your review</a>
 							</div>
-							<div>
+							       <div>
                             @if ($product->discount_price == NULL)
 								<h3  class="product-price">GH₵{{ number_format($product->selling_price) }}</del></h3>
                             @else
