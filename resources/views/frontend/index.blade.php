@@ -113,11 +113,12 @@ Mini Market GH||Ghana's Safest Online Shop
 												</div>
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-													<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+													<button  class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 												</div>
 											</div>
 											<div class="add-to-cart">
 												<button data-toggle="modal" data-target="#exampleModal" class="add-to-cart-btn" id="{{ $product->id }}" onclick="productView(this.id)"><i class="fa fa-shopping-cart"></i> add to cart</button>
+											
 											</div>
 										</div>
 										<!-- /product -->

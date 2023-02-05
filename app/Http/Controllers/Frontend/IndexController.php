@@ -108,17 +108,20 @@ class IndexController extends Controller
 		$multiImag = MultiImg::where('product_id',$id)->get();
         $color = $product->product_color;
 		$product_color = explode(',', $color);
+        $size = $product->product_size;
+		$product_size = explode(',', $size);
         $category = Category::latest()->get();
         $cat_id = $product->category_id;
 		$relatedProduct = Product::where('category_id',$cat_id)->where('id','!=',$id)->orderBy('id','DESC')->get();
-	 	return view('frontend.product.product_details',compact('product','multiImag','product_color','category','relatedProduct'));
+	 	return view('frontend.product.product_details',compact('product','multiImag','product_color','product_size','category','relatedProduct'));
 
 	}
 
-    /// Product View With Ajax
+     /// Product View With Ajax
 	public function ProductViewAjax($id){
-		$product = Product::with('category','subcategory')->findOrFail($id);
-		$color = $product->product_color;
+        $product = Product::with('category','brand')->findOrFail($id);
+
+        $color = $product->product_color;
 		$product_color = explode(',', $color);
 
 		$size = $product->product_size;

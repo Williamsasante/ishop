@@ -48,6 +48,7 @@
 					</div>
 					<!-- /Product main img -->
 
+					
 					<!-- Product thumb imgs -->
 					<div class="col-md-2  col-md-pull-5">
 						<div id="product-imgs">
@@ -65,7 +66,7 @@
 					<!-- Product details -->
 					<div class="col-md-5">
 						<div class="product-details">
-							<h2 class="product-name">{{ $product->product_name }}</h2>
+							<h2 class="product-name" id="pname">{{ $product->product_name }}</h2>
 							<div>
 								<div class="product-rating">
 									<i class="fa fa-star"></i>
@@ -84,51 +85,83 @@
 								@endif
                                 <span class="product-available">In Stock</span>
 							</div>
-							<p>{{ $product->short_descp }}</p>
-
 							<div class="product-options">
+							@if($product->product_color == null)
+
+								@else	
 								
 								<label>
 									Color
-									<select class="input-select">
+									<select class="input-select" id="color">
 									@foreach($product_color as $color)
 										<option value="">{{ $color }}</option>
 										@endforeach
 									</select>
+									@endif
 								</label>
+								
+					
+								
 							</div>
 
-							<div class="add-to-cart">
-								<div class="qty-label">
-									Qty
-									<div class="input-number">
-										<input type="number">
-										<span class="qty-up">+</span>
-										<span class="qty-down">-</span>
-									</div>
-								</div>
-								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-							</div>
 
-							<ul class="product-btns">
-								<li><a href="#"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
-								<li><a href="#"><i class="fa fa-exchange"></i> add to compare</a></li>
-							</ul>
+							<div class="product-options">
+							@if($product->product_size == null)
 
-							<ul class="product-links">
-								<li>Category:</li>
+								@else
 								
-								<li><a href="#"></a></li>
-								
-							</ul>
+								<label>
+									Size
+									<select class="input-select" id="size">
 
-							<ul class="product-links">
+									@foreach($product_size as $size)
+										<option value="">{{ $size }}</option>
+										@endforeach
+									</select>
+									@endif
+								</label>
+								<ul class="product-links">
 								<li>Share:</li>
 								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
 								<li><a href="#"><i class="fa fa-envelope"></i></a></li>
 							</ul>
+							</div>
+
+							<div class="add-to-cart">
+								<div class="qty-label">
+									Qty
+									<div class="input-number">
+										<input type="number" id="qty" value="1" min="1">
+										<span class="qty-up">+</span>
+										<span class="qty-down">-</span>
+									</div>
+								</div>
+								<ul class="product-btns">
+								<li><a href="#"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
+								<li><a href="#"><i class="fa fa-exchange"></i> add to compare</a></li>
+								<li>Category:</li>
+							</ul>
+					
+							</div>
+							<input type="hidden" id="product_id" value="{{ $product->id }}" min="1">
+							<div class="col-sm-7">
+				
+				<button type="submit" onclick="addToCart()" class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</button>
+			</div>
+
+							
+
+							<ul class="product-links">
+								
+								
+								<li><a href="#"></a></li>
+								
+							</ul>
+							
+
+							
 
 						</div>
 					</div>
