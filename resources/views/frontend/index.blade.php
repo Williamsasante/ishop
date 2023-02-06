@@ -112,7 +112,7 @@ Mini Market GH||Ghana's Safest Online Shop
 													<i class="fa fa-star-o"></i>
 												</div>
 												<div class="product-btns">
-													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+											   <button class="add-to-wishlist" title="Wishlist" id="{{ $product->id }}" onclick="addToWishList(this.id)"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button  class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 												</div>
 											</div>

@@ -54,7 +54,7 @@ Route::post('/user/Profile/store',[IndexController::class,'UserProfileStore'])->
 Route::get('/user/change/password',[IndexController::class,'ChangePassword'])->name('change.password');
 Route::post('/user/Password/Update',[IndexController::class,'UserPasswordUpdate'])->name('user.password.update');
 
-//Brands Route at Admin
+//Brands Route at Admin 
 Route::prefix('brand')->group(function(){
 Route::get('/view',[BrandController::class,'BrandView'])->name('all.brand');
 Route::post('/store',[BrandController::class,'BrandStore'])->name('brand.store');
@@ -128,3 +128,6 @@ Route::post('/cart/data/store/{id}', [CartController::class, 'AddToCart']);
 Route::get('/product/mini/cart/', [CartController::class, 'AddMiniCart']);
 // Remove mini cart
 Route::get('/minicart/product-remove/{rowId}', [CartController::class, 'RemoveMiniCart']);
+
+// Add to Wishlist
+Route::post('/add-to-wishlist/{product_id}', [CartController::class, 'AddToWishlist']);

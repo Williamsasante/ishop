@@ -354,6 +354,29 @@ function addToCart(){
  //  end mini cart remove
 </script>
 
+<!--  /// Start Add Wishlist Page  //// -->
+
+<script type="text/javascript">
+    
+function miniCartRemove(product_id){
+    $.ajax({
+        type: "POST",
+        dataType: 'json',
+        url: "/add-to-wishlist/"+product_id,
+        success:function(data){
+        }
+    })
+}
+</script>
+
+
+
+
+
+
+ <!--  /// End Add Wishlist Page  ////   -->
+
+
 
         
 	</body>
