@@ -49,7 +49,7 @@ class CartController extends Controller
     				'size' => $request->size,
     			],
     		]);
-    		return response()->json(['success' => 'Successfully Added on Your Cart']);
+    		return response()->json(['success' => 'Successfully Added to Your Cart']);
     	}
 
     } // end mehtod 
@@ -89,11 +89,11 @@ class CartController extends Controller
                 'product_id' => $product_id, 
                 'created_at' => Carbon::now(), 
             ]);
-           return response()->json(['success' => 'Successfully Added On Your Wishlist']);
+           return response()->json(['success' => 'Successfully Added to Your Wishlist']);
 
         }else{
 
-            return response()->json(['error' => 'At First Login Your Account']);
+            return response()->json(['error' => 'First Log into your account']);
 
         }
 
