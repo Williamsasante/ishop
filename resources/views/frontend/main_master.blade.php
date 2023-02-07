@@ -285,118 +285,45 @@ function addToCart(){
 
 </script>
 
-//  Add  To MiniCart Product 
 <script type="text/javascript">
-     function miniCart(){
+     function wishlist(){
         $.ajax({
             type: 'GET',
-            url: '/product/mini/cart',
+            url: '/get-wishlist-product',
             dataType:'json',
             success:function(response){
-              $('span[id="cartSubTotal"]').text(response.cartTotal);
-               $('#cartQty').text(response.cartQty);
-              var miniCart=""
+                var rows = ""
+                $.each(response, function(key,value){
+                    rows += `<tr>
+                    <td class="col-md-2"><img src="/${value.product.product_thambnail} " alt="imga"></td>
+                    <td class="col-md-7">
+                        <div class="product-name"><a href="#">${value.product.product_name}</a></div>
+                         
+                        <div class="price">
+                        ${value.product.discount_price == null
+                            ? `${value.product.selling_price}`
+                            :
+                            `${value.product.discount_price} <span>${value.product.selling_price}</span>`
+                        }
+                            
+                        </div>
+                    </td>
+        <td class="col-md-2">
+            <button class="btn btn-primary icon" type="button" title="Add Cart" data-toggle="modal" data-target="#exampleModal" id="${value.product_id}" onclick="productView(this.id)"> Add to Cart </button>
+        </td>
+        <td class="col-md-1 close-btn">
+            <a href="#" class=""><i class="fa fa-times"></i></a>
+        </td>
+                </tr>`
+        });
                 
-              $.each(response.carts, function(key,value){
-                    miniCart += `<div class="product-widget">
-                  <div class="product-img">
-                    <img src="/${value.options.image}" alt="">
-                  </div>
-                  <div class="product-body">
-                      <h3 class="product-name"><a href="#">${value.name}</a></h3>
-                     <h4 class="product-price"><span class="qty"></span>GH₵ ${value.price} * ${value.qty} </h4>
-                  </div>
-                       <button class="delete" id="${value.rowId}" onclick="miniCartRemove(this.id)"><i class="fa fa-close"></i></button>
-                  </div>
-                         </div>
-                  <div class="cart-summary">`
-                });
-
-                $('#miniCart').html(miniCart);
-                
-
+                $('#wishlist').html(rows);
             }
         })
      }
-     miniCart();
-     
-     /// mini cart remove Start 
-    function miniCartRemove(rowId){
-        $.ajax({
-            type: 'GET',
-            url: '/minicart/product-remove/'+rowId,
-            dataType:'json',
-            success:function(data){
-            miniCart();
-             // Start Message 
-                const Toast = Swal.mixin({
-                      toast: true,
-                      position: 'top-end',
-                      icon: 'success',
-                      showConfirmButton: false,
-                      timer: 3000
-                    })
-                if ($.isEmptyObject(data.error)) {
-                    Toast.fire({
-                        type: 'success',
-                        title: data.success
-                    })
-                }else{
-                    Toast.fire({
-                        type: 'error',
-                        title: data.error
-                    })
-                }
-                // End Message 
-            }
-        });
-    }
- //  end mini cart remove
-</script>
+ wishlist();
+ </script> 
 
-<!--  /// Start Add Wishlist Page  //// -->
-
-<script type="text/javascript">
-    
-function addToWishList(product_id){
-    $.ajax({
-        type: "POST",
-        dataType: 'json',
-        url: "/add-to-wishlist/"+product_id,
-        success:function(data){
-          // Start Message 
-          const Toast = Swal.mixin({
-                      toast: true,
-                      position: 'top-end',
-                      
-                      showConfirmButton: false,
-                      timer: 3000
-                    })
-                if ($.isEmptyObject(data.error)) {
-                    Toast.fire({
-                        type: 'success',
-                        icon: 'success',
-                        title: data.success
-                    })
-                }else{
-                    Toast.fire({
-                        type: 'error',
-                        icon: 'error',
-                        title: data.error
-                    })
-                }
-                // End Message 
-        }
-    })
-}
-</script>
-
-
-
-
-
-
- <!--  /// End Add Wishlist Page  ////   -->
 
 
 
