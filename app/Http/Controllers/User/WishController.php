@@ -7,5 +7,7 @@ use Illuminate\Http\Request;
 
 class WishController extends Controller
 {
-    //
+    public function ViewWishlist(){
+		return view('frontend.wishlist.view_wishlist');
+}
 }

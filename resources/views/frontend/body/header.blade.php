@@ -11,7 +11,7 @@
 			<ul class="header-links pull-right">
 				<li><a href="#"><i class="fa fa fa-check"></i> Checkout</a></li>
 				<li><a href="#"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-				<li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
+				<li><a href="{{ route('wishlist') }}"><i class="fa fa-heart"></i> Wishlist</a></li>
 				<li>
 					@auth
 					<a href="{{route('login')}}"><i class="icon fa fa-user"></i>{{ Auth::user()->name }}</a>
@@ -62,7 +62,7 @@
 					<div class="header-ctn">
 						<!-- Wishlist -->
 						<div>
-							<a href="#">
+							<a href="{{ route('wishlist') }}">
 								<i class="fa fa-heart-o"></i>
 								<span>Your Wishlist</span>
 								<div class="qty">2</div>
