@@ -13,7 +13,7 @@ This is an Open Sourced full stack E-Commerce Web App. I started this project be
 
 ## What does this project do ?
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+
 - Display categories of product (eg Electronic,Furnitures)
 - Display products in a given category (TV,Microwave,Vaccum cleaner)
 - Show Product Details.
