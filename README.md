@@ -4,7 +4,7 @@
 This is an Open Sourced full stack E-Commerce Web App. I started this project because I wanted to explore various parts of Laravel 9. But gradually it is evolving into a fully functional app.
 
 
-## What Is Not Included:-
+## What Is Included:-
 - **Back End Web Server with Web API**
 - **Admin Panel**
 - **[Frontend Web SIte**
