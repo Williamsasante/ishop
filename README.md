@@ -1,15 +1,26 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## ECOMMERCE APP
 
-## What Is Not Included (feel free to Ping me if you want complete solution):-
+This is an Open Sourced full stack E-Commerce Web App. I started this project because I wanted to explore various parts of Laravel 9. But gradually it is evolving into a fully functional app.
 
-- Back End Web Server with Web API
-- Admin Panel
-- Web SIte.
-## This an ecommerece app created with Laravel 9. It has several functions completed already and a few left to be done.
+
+## What Is Not Included:-
+- **Back End Web Server with Web API**
+- **Admin Panel**
+- **[Frontend Web SIte**
+
+
+
+## What does this project do ?
+
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- Display categories of product (eg Electronic,Furnitures)
+- Display products in a given category (TV,Microwave,Vaccum cleaner)
+- Show Product Details.
+- Add any product to cart and update total item count and amount.
+- Store cart list in DB for persistant storage.
+- Whats new dialog on new update
+
+## ADMIN DETAILS
+- Username: admin@gmail.com
+- Password : password
