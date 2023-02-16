@@ -1,5 +1,5 @@
 
-## ECOMMERCE APP
+## ECOMMERCE APP(MyShopGh)
 
 This is an Open Sourced full stack E-Commerce Web App. I started this project because I wanted to explore various parts of Laravel 9. But gradually it is evolving into a fully functional app.
 
