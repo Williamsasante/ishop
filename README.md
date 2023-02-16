@@ -6,4 +6,10 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
+
+What Is Not Included (feel free to Ping me if you want complete solution):-
+
+Back End Web Server with Web API
+Admin Panel
+Web SIte.
 This an ecommerece app created with Laravel 9. It has several functions completed already and a few left to be done.
