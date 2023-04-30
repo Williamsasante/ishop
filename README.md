@@ -19,7 +19,7 @@ This is an Open Sourced full stack E-Commerce Web App. I started this project be
 - Show Product Details.
 - Add any product to cart and update total item count and amount.
 - Store cart list in DB for persistant storage.
-- Whats new dialog on new update
+- Whats new dialog on new updates
 - Order and make payment
 - Track Order
 - Admin Rights
