@@ -7,7 +7,7 @@ This is an Open Sourced full stack E-Commerce Web App. I started this project be
 ## What Is Included:-
 - **Back End Web Server with Web API**
 - **Admin Panel**
-- **[Frontend Web SIte**
+- **[Frontend Web SItes**
 
 
 
