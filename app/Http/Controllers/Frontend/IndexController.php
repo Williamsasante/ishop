@@ -26,10 +26,10 @@ class IndexController extends Controller
         $hot_deals = Product::where('hot_deals',1)->where('discount_price','!=',NULL)->orderBy('id','DESC')->limit(6)->get();
 
 
-        $skip_category_0 = Category::skip(2)->first();
+        $skip_category_0 = Category::skip(0)->first();
     	$skip_product_0 = Product::where('status',1)->where('category_id',$skip_category_0->id)->orderBy('id','DESC')->get();
-        
-        $skip_subcategory_1 = SubCategory::skip(2)->first();
+
+        $skip_subcategory_1 = SubCategory::skip(0)->first();
     	$skip_subcategory_product_1 = Product::where('status',1)->where('subcategory_id',$skip_subcategory_1->id)->orderBy('id','DESC')->get();
 
 
@@ -62,7 +62,7 @@ class IndexController extends Controller
             $filename = date('YmdHi').$file->getClientOriginalName();
             $file->move(public_path('upload/user_images'),$filename);
             $data['profile_photo_path'] = $filename;
-            
+
         }
         $data->save();
 
@@ -97,7 +97,7 @@ class IndexController extends Controller
             $user->save();
             Auth::logout();
             return redirect()->route('user.logout');
-            
+
         }else{
             return redirect()->back();
         }
@@ -134,5 +134,5 @@ class IndexController extends Controller
 
 		));
 
-	} // end method 
+	} // end method
 }

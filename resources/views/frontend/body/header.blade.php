@@ -65,7 +65,9 @@
 							<a href="{{ route('wishlist') }}">
 								<i class="fa fa-heart-o"></i>
 								<span>Your Wishlist</span>
-								<div class="qty">2</div>
+								{{-- <div class="qty">2</div> --}}
+                               
+                                @livewire("wish-list.show-product-wish-list")
 							</a>
 						</div>
 						<!-- /Wishlist -->
@@ -80,12 +82,12 @@
 							<div class="cart-dropdown">
 								<div class="cart-list">
 
-						<!-- ===== === MiniCart with Ajax ===== == -->	
+						<!-- ===== === MiniCart with Ajax ===== == -->
 
 					<div id="miniCart">
 
 					</div>
-						<!-- ===== === End MiniCart with Ajax ===== == -->	
+						<!-- ===== === End MiniCart with Ajax ===== == -->
 									<small> Item(s) selected:</small>
 									<h5> SUBTOTAL:GH₵ <span class='price'  id="cartSubTotal"> </span></h5>
 								</div>
@@ -94,7 +96,7 @@
 									<a href="#">Checkout <i class="fa fa-arrow-circle-right"></i></a>
 								</div>
 							</div>
-							
+
 						</div>
 						<!-- ===== === End SHOPPING CART DROPDOWN ===== == -->
 
@@ -125,8 +127,8 @@
 		<div id="responsive-nav">
 			<!-- NAV -->
 			<ul class="main-nav nav navbar-nav">
-						
-			
+
+
 			<li class=""><a href="{{ url('/') }}">Home</a></li>
 			@php
   $categories = App\Models\Category::orderBy('category_name','ASC')->get();

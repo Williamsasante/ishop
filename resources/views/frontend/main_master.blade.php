@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="">
     <meta name="csrf-token" content="{{csrf_token()}}">
-    
+
 		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 		 <title>@yield('title') </title>
@@ -15,10 +15,10 @@
 		<link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,600italic,700,700italic,800' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-   
+
 		<!-- Bootstrap -->
 		<link type="text/css" rel="stylesheet" href=" {{asset('frontend/css/bootstrap.min.css')}}"/>
-       
+
 		<!-- Slick -->
 		<link type="text/css" rel="stylesheet" href="{{asset('frontend/css/slick.css')}}"/>
 		<link type="text/css" rel="stylesheet" href="{{asset('frontend/css/slick-theme.css')}}"/>
@@ -32,7 +32,7 @@
 		<!-- Custom stlylesheet -->
 		<link type="text/css" rel="stylesheet" href="{{asset('frontend/css/style.css')}}"/>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
-
+    @livewireStyles
 </head>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -45,19 +45,19 @@
     </head>
 	<body>
 
-    
+
 @include('frontend.body.header')
 <!-- ============================================== HEADER : END ============================================== -->
 <br>
 
 @yield('content')
 
-<!-- ============================================================= FOOTER : END============================================================= --> 
+<!-- ============================================================= FOOTER : END============================================================= -->
 <br>
 @include('frontend.body.footer')
-		
 
-     
+
+
 		<!-- jQuery Plugins -->
 		<script src="{{asset('frontend/js/jquery.min.js')}}"></script>
 		<script src="{{asset('frontend/js/bootstrap.min.js')}}"></script>
@@ -65,8 +65,8 @@
 		<script src="{{asset('frontend/js/nouislider.min.js')}}"></script>
 		<script src="{{asset('frontend/js/jquery.zoom.min.js')}}"></script>
 		<script src="{{asset('frontend/js/main.js')}}"></script>
-    <script src = "https://code.jquery.com/jquery-3.3.1.slim.min.js" 
-         integrity = "sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+    <script src = "https://code.jquery.com/jquery-3.3.1.slim.min.js"
+         integrity = "sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
          crossorigin = "anonymous">
       </script>
    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -77,9 +77,9 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-       
+
       </div>
-    
+
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
@@ -114,9 +114,9 @@
 <del id="oldprice">GH₵</del>
   <li class="list-group-item">Product Code: <strong id="pcode"></strong></li>
   <li class="list-group-item">Category: <strong id="pcategory"></strong></li>
-  
-  <li class="list-group-item">Stock: <span class="badge badge-pill badge-success" id="available" style="background: green; color: white;"></span> 
-<span class="badge badge-pill badge-danger" id="outofstock" style="background: red; color: white;"></span> 
+
+  <li class="list-group-item">Stock: <span class="badge badge-pill badge-success" id="available" style="background: green; color: white;"></span>
+<span class="badge badge-pill badge-danger" id="outofstock" style="background: red; color: white;"></span>
 
 </ul>
 
@@ -128,14 +128,14 @@
             <div class="form-group">
             <label for="color">Choose Color</label>
     <select class="form-control" id="color" name="color">
-     
+
     </select>
   </div>
 
   <div class="form-group">
             <label for="size">Choose Size</label>
     <select class="form-control" id="size" name="size">
-     
+
     </select>
   </div>
 
@@ -164,7 +164,7 @@
             'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
         }
     })
-// Start Product View with Modal 
+// Start Product View with Modal
 function productView(id){
     // alert(id)
     $.ajax({
@@ -184,14 +184,14 @@ function productView(id){
 
 
 
-        
+
             // Color
-    $('select[name="color"]').empty();        
+    $('select[name="color"]').empty();
     $.each(data.color,function(key,value){
         $('select[name="color"]').append('<option value=" '+value+' ">'+value+' </option>')
     }) // end color
      // Size
-    $('select[name="size"]').empty();        
+    $('select[name="size"]').empty();
     $.each(data.size,function(key,value){
         $('select[name="size"]').append('<option value=" '+value+' ">'+value+' </option>')
         if (data.size == "") {
@@ -202,9 +202,9 @@ function productView(id){
     }) // end size
 
 
-      // Product Price 
+      // Product Price
 
-      
+
       if (data.product.discount_price == null) {
                 $('#pprice').text('');
                 $('#oldprice').text('');
@@ -212,7 +212,7 @@ function productView(id){
             }else{
                 $('#pprice').text(data.product.discount_price);
                 $('#oldprice').text(data.product.selling_price);
-            } // end prodcut price 
+            } // end prodcut price
             // Start Stock opiton
             if (data.product.product_qty > 0) {
                 $('#available').text('');
@@ -222,22 +222,22 @@ function productView(id){
                 $('#available').text('');
                 $('#outofstock').text('');
                 $('#outofstock').text('outofstock');
-            } 
-            
-            
-            
-            // end Stock Option 
+            }
+
+
+
+            // end Stock Option
 
         }
 
 
-        
+
     })
-    
- 
+
+
 }
 
-// Start Add To Cart Product 
+// Start Add To Cart Product
 function addToCart(){
         var product_name = $('#pname').text();
         var id = $('#product_id').val();
@@ -256,7 +256,7 @@ function addToCart(){
               miniCart()
               $('#closeModel').click();
                  // console.log(data)
-                // Start Message 
+                // Start Message
                 const Toast = Swal.mixin({
                       toast: true,
                       position: 'top-end',
@@ -275,11 +275,11 @@ function addToCart(){
                         title: data.error
                     })
                 }
-                // End Message 
+                // End Message
             }
         })
     }
-    // End Add To Cart Product 
+    // End Add To Cart Product
 
 
 
@@ -298,14 +298,14 @@ function addToCart(){
                     <td class="col-md-2"><img src="/${value.product.product_thambnail} " alt="imga"></td>
                     <td class="col-md-7">
                         <div class="product-name"><a href="#">${value.product.product_name}</a></div>
-                         
+
                         <div class="price">
                         ${value.product.discount_price == null
                             ? `${value.product.selling_price}`
                             :
                             `${value.product.discount_price} <span>${value.product.selling_price}</span>`
                         }
-                            
+
                         </div>
                     </td>
         <td class="col-md-2">
@@ -316,17 +316,18 @@ function addToCart(){
         </td>
                 </tr>`
         });
-                
+
                 $('#wishlist').html(rows);
             }
         })
      }
  wishlist();
- </script> 
+ </script>
 
 
 
 
-        
+@livewireScripts
+
 	</body>
 </html>
