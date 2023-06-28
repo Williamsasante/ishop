@@ -60,7 +60,7 @@ class ProductController extends Controller
 
       	'product_thambnail' => $save_url,
       	'status' => 1,
-      	'created_at' => Carbon::now(),   	 
+      	'created_at' => Carbon::now(),
 
 
 
@@ -75,12 +75,12 @@ class ProductController extends Controller
     	Image::make($img)->resize(917,1000)->save('upload/products/multi-image/'.$make_name);
     	$uploadPath = 'upload/products/multi-image/'.$make_name;
 
-      
+
     	MultiImg::insert([
 
     		'product_id' => $product_id,
     		'photo_name' => $uploadPath,
-    		'created_at' => Carbon::now(), 
+    		'created_at' => Carbon::now(),
 
     	]);
 
@@ -138,9 +138,9 @@ public function ProductDataUpdate(Request $request){
       'hot_deals' => $request->hot_deals,
       'featured' => $request->featured,
       'special_offer' => $request->special_offer,
-      'special_deals' => $request->special_deals,      	 
+      'special_deals' => $request->special_deals,
       'status' => 1,
-      'created_at' => Carbon::now(),   
+      'created_at' => Carbon::now(),
 
   ]);
 
@@ -152,7 +152,7 @@ public function ProductDataUpdate(Request $request){
     return redirect()->route('manage-product')->with($notification);
 
 
-} // end method 
+} // end method
 
 
 /// Multiple Image Update
@@ -162,7 +162,7 @@ public function MultiImageUpdate(Request $request){
     foreach ($imgs as $id => $img) {
     $imgDel = MultiImg::findOrFail($id);
     unlink($imgDel->photo_name);
-     
+
     $make_name = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
     Image::make($img)->resize(917,1000)->save('upload/products/multi-image/'.$make_name);
     $uploadPath = 'upload/products/multi-image/'.$make_name;
@@ -182,33 +182,33 @@ public function MultiImageUpdate(Request $request){
 
     return redirect()->back()->with($notification);
 
-} // end mehtod 
+} // end mehtod
 
 
-/// Product Main Thambnail Update /// 
+/// Product Main Thambnail Update ///
 public function ThambnailImageUpdate(Request $request){
  $pro_id = $request->id;
  $oldImage = $request->old_img;
- unlink($oldImage);
 
-$image = $request->file('product_thambnail');
-    $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-    Image::make($image)->resize(917,1000)->save('upload/products/thambnail/'.$name_gen);
-    $save_url = 'upload/products/thambnail/'.$name_gen;
+ $image = $request->file('product_thambnail');
+ $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+ Image::make($image)->resize(917,1000)->save('upload/products/thambnail/'.$name_gen);
+ $save_url = 'upload/products/thambnail/'.$name_gen;
 
-    Product::findOrFail($pro_id)->update([
-        'product_thambnail' => $save_url,
-        'updated_at' => Carbon::now(),
+ Product::findOrFail($pro_id)->update([
+     'product_thambnail' => $save_url,
+     'updated_at' => Carbon::now(),
 
     ]);
 
-     $notification = array(
+    $notification = array(
         'message' => 'Product Image Thambnail Updated Successfully',
         'alert-type' => 'info'
     );
 
     return redirect()->back()->with($notification);
 
+    unlink($oldImage);
  } // end method
 
 
@@ -225,7 +225,7 @@ $image = $request->file('product_thambnail');
 
     return redirect()->back()->with($notification);
 
- } // end method 
+ } // end method
 
 
 
@@ -248,7 +248,7 @@ public function ProductActive($id){
     );
 
     return redirect()->back()->with($notification);
-     
+
  }
 
 
@@ -271,11 +271,11 @@ public function ProductActive($id){
 
     return redirect()->back()->with($notification);
 
- }// end method 
+ }// end method
 
 
 
-// product Stock 
+// product Stock
 public function ProductStock(){
 
 $products = Product::latest()->get();

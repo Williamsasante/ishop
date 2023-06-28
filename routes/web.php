@@ -55,7 +55,7 @@ Route::post('/user/Profile/store',[IndexController::class,'UserProfileStore'])->
 Route::get('/user/change/password',[IndexController::class,'ChangePassword'])->name('change.password');
 Route::post('/user/Password/Update',[IndexController::class,'UserPasswordUpdate'])->name('user.password.update');
 
-//Brands Route at Admin 
+//Brands Route at Admin
 Route::prefix('brand')->group(function(){
 Route::get('/view',[BrandController::class,'BrandView'])->name('all.brand');
 Route::post('/store',[BrandController::class,'BrandStore'])->name('brand.store');
@@ -75,7 +75,7 @@ Route::get('/edit1/{id}',[CategoryController::class,'CategoryEditEdit'])->name('
 
 });
 //SubCategories Route at Admin
-Route::prefix('subcategory')->group(function(){  
+Route::prefix('subcategory')->group(function(){
 Route::get('/sub/view',[SubCategoryController::class,'SubCategoryView'])->name('all.subcategory');
 Route::post('/sub/store',[SubCategoryController::class,'SubCategoryStore'])->name('subcategory.store');
 Route::get('/edit/{id}',[SubCategoryController::class,'SubCategoryEdit'])->name('subcategory.edit');
@@ -99,10 +99,10 @@ Route::get('/multiimg/delete/{id}', [ProductController::class, 'MultiImageDelete
 Route::get('/inactive/{id}', [ProductController::class, 'ProductInactive'])->name('product.inactive');
 Route::get('/active/{id}', [ProductController::class, 'ProductActive'])->name('product.active');
 Route::get('/delete/{id}', [ProductController::class, 'ProductDelete'])->name('product.delete');
-   
+
 });
 
-// Slider Route at Admin 
+// Slider Route at Admin
 //GFGF
 //help
 Route::prefix('slider')->group(function(){
@@ -113,8 +113,8 @@ Route::post('/update', [SliderController::class, 'SliderUpdate'])->name('slider.
 Route::get('/delete/{id}', [SliderController::class, 'SliderDelete'])->name('slider.delete');
 Route::get('/inactive/{id}', [SliderController::class, 'SliderInactive'])->name('slider.inactive');
 Route::get('/active/{id}', [SliderController::class, 'SliderActive'])->name('slider.active');
-    
-    
+
+
 });
 // Product Details at Frontend
 Route::get('/product/details/{id}/{slug}', [IndexController::class, 'ProductDetails']);
@@ -136,3 +136,4 @@ Route::post('/add-to-wishlist/{product_id}', [CartController::class, 'AddToWishl
 // Wishlist page
 Route::get('/wishlist', [WishController::class, 'ViewWishlist'])->name('wishlist');
 Route::get('/get-wishlist-product', [WishlistController::class, 'GetWishlistProduct']);
+Route::post('/add-product-to-wishlist/{product_id}', [WishController::class, 'AddProductToWishList']);

@@ -41,10 +41,10 @@ Mini Market GH||Ghana's Safest Online Shop
 
 
 
-					
-          
 
-				
+
+
+
 		<!-- /SECTION -->
 
 		<!-- SECTION -->
@@ -63,7 +63,7 @@ Mini Market GH||Ghana's Safest Online Shop
 						</div>
 					</div>
 					<!-- /section title -->
-       
+
 
 					<!-- Products tab & slick -->
 					<div class="col-md-12 col-3 col-xl-3">
@@ -72,19 +72,19 @@ Mini Market GH||Ghana's Safest Online Shop
 								<!-- tab -->
 								<div id="all" class="tab-pane active">
 									<div class="products-slick" data-nav="#slick-nav-1">
-									
+
 										<!-- product -->
 										@foreach($products as $product)
 										<div class="product">
 											<div class="product-img" >
 												<img  src="{{ asset($product->product_thambnail) }}" alt="">
+                                                vvv
 												<div>
-																		
-																			<div class="product-label">
+                                                    <div class="product-label">
 														@php
 									$amount = (int)$product->selling_price - (int) $product->discount_price;
 									$discount = ($amount/$product->selling_price) * 100;
-															@endphp 	
+															@endphp
 												@if($product->discount_price == NULL)
 													<span class="new">No discount</span>
 													@else
@@ -92,13 +92,13 @@ Mini Market GH||Ghana's Safest Online Shop
 												@endif
 												</div>
 												</div>
-												
+
 											</div>
 											<div class="product-body">
 												<!-- <p class="product-category">Category</p> -->
 												<h3 class="product-name"><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug )}}">{{ $product->product_name }}</a></h3>
-												
-												
+
+
 												@if ($product->discount_price == NULL)
 												<h4 class="product-price">GH₵{{ number_format($product->selling_price) }}</del></h4>
 												@else
@@ -112,13 +112,21 @@ Mini Market GH||Ghana's Safest Online Shop
 													<i class="fa fa-star-o"></i>
 												</div>
 												<div class="product-btns">
-											   <button class="add-to-wishlist" title="Wishlist" id="{{ $product->id }}" onclick="addToWishList(this.id)"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                                                    {{-- @auth() --}}
+                                                    @livewire('wish-list.add-product-to-wish-list',
+                                                       ['product_id' => $product->id, 'user_id' => 12 ]
+                                                    )
+                                                    {{-- @endauth --}}
+											   <button
+                                               {{-- wire:click.prefetch="showPost({{ $contact->id }})" --}}
+                                               wire:click='AddWishList({{ $product->id }})'
+                                                class="add-to-wishlist" title="Wishlist" id="{{ $product->id }}" ><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
 													<button  class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 												</div>
 											</div>
 											<div class="add-to-cart">
 												<button data-toggle="modal" data-target="#exampleModal" class="add-to-cart-btn" id="{{ $product->id }}" onclick="productView(this.id)"><i class="fa fa-shopping-cart"></i> add to cart</button>
-											
+
 											</div>
 										</div>
 										<!-- /product -->
@@ -216,7 +224,7 @@ Mini Market GH||Ghana's Safest Online Shop
 					<!-- /section title -->
 
 					<!-- Products tab & slick -->
-					
+
 					<div class="col-md-12">
 						<div class="row">
 							<div class="products-tabs">
@@ -232,7 +240,7 @@ Mini Market GH||Ghana's Safest Online Shop
 												@php
 									$amount = (int)$product->selling_price - (int) $product->discount_price;
 									$discount = ($amount/$product->selling_price) * 100;
-															@endphp 	
+															@endphp
 												@if($product->discount_price == NULL)
 													<span class="new">No discount</span>
 													@else
@@ -240,11 +248,11 @@ Mini Market GH||Ghana's Safest Online Shop
 												@endif
 												</div>
 											</div>
-											
+
 											<div class="product-body">
 												<p class="product-category">Category</p>
 					<h3 class="product-name"><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug )}}">{{ $product->product_name }}</a></h3>
-												
+
 					@if ($product->discount_price == NULL)
 					<h4 class="product-price">GH₵{{ number_format($product->selling_price) }}</del></h4>
 					@else
@@ -270,8 +278,8 @@ Mini Market GH||Ghana's Safest Online Shop
 										@endforeach
 										<!-- /product -->
 
-										
-										
+
+
 									</div>
 									<div id="slick-nav-2" class="products-slick-nav"></div>
 								</div>
@@ -279,7 +287,7 @@ Mini Market GH||Ghana's Safest Online Shop
 							</div>
 						</div>
 					</div>
-					
+
 					<!-- /Products tab & slick -->
 				</div>
 				<!-- /row -->
@@ -299,14 +307,14 @@ Mini Market GH||Ghana's Safest Online Shop
 						<div class="section-title">
 							<h3 class="title">{{  $skip_subcategory_1->subcategory_name }}</h3>
 							<div class="section-nav">
-								
+
 							</div>
 						</div>
 					</div>
 					<!-- /section title -->
 
 					<!-- Products tab & slick -->
-					
+
 					<div class="col-md-12">
 						<div class="row">
 							<div class="products-tabs">
@@ -322,7 +330,7 @@ Mini Market GH||Ghana's Safest Online Shop
 												@php
 									$amount = (int)$product->selling_price - (int) $product->discount_price;
 									$discount = ($amount/$product->selling_price) * 100;
-															@endphp 	
+															@endphp
 												@if($product->discount_price == NULL)
 													<span class="new">No discount</span>
 													@else
@@ -330,10 +338,10 @@ Mini Market GH||Ghana's Safest Online Shop
 												@endif
 												</div>
 											</div>
-											
+
 											<div class="product-body">
 					<h3 class="product-name"><a href="{{ url('product/details/'.$product->id.'/'.$product->product_slug )}}">{{ $product->product_name }}</a></h3>
-												
+
 					@if ($product->discount_price == NULL)
 					<h4 class="product-price">GH₵{{ number_format($product->selling_price) }}</del></h4>
 					@else
@@ -359,8 +367,8 @@ Mini Market GH||Ghana's Safest Online Shop
 										@endforeach
 										<!-- /product -->
 
-										
-										
+
+
 									</div>
 									<div id="slick-nav-2" class="products-slick-nav"></div>
 								</div>
@@ -368,7 +376,7 @@ Mini Market GH||Ghana's Safest Online Shop
 							</div>
 						</div>
 					</div>
-					
+
 					<!-- /Products tab & slick -->
 				</div>
 				<!-- /row -->
@@ -376,13 +384,13 @@ Mini Market GH||Ghana's Safest Online Shop
 			<!-- /container -->
 		</div>
 
-		
+
 
 		<!-- NEWSLETTER -->
 		<div id="newsletter" class="section">
 			<!-- container -->
 			<div class="container">
-				
+
 			</div>
 			<!-- /container -->
 		</div>
